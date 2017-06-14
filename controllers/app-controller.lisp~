@@ -1,0 +1,10 @@
+(in-package #:ian.mrexox.site)
+
+(define-easy-handler (posts :usi "/posts") (page)
+  (setf (content-type*) "application/json")
+  (to-json (new-js
+	     ("data" (new-js
+		       ("title" "Hello, world!")
+		       ("likes" 0)
+		       ("text" "This is my first post handled by CL")
+		       ("tags" '("new-post" "common-lisp" "happy-coding")))))))

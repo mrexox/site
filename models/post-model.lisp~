@@ -1,0 +1,12 @@
+(defclass post ()
+  ((title :col-type string
+	  :initarg :title
+	  :accessor title
+	  :init-form (error "Post must have a Title"))
+   (text :col-type text
+	 :initarg :text
+	 :accessor text)
+   (likes :col-type integer
+	  :initform 0))
+  (:metaclass dao-class)
+  (:keys title text))
