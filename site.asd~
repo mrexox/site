@@ -1,0 +1,22 @@
+(require :asdf)
+(asdf:defsystem "site"
+  :description "Ian Mrexox Own Site"
+  :version "0.0.1"
+  :author "Ian K <mrexox@outlook.com>"
+  :licence "No"
+  :depends-on ("postmodern"
+	       "jsown"
+	       "s-sql"
+	       "hunchentoot"
+	       "local-time"
+	       "simple-date")
+  :components ((:file "packages")
+	       (:module "serializers"
+			:components ((:file "serializers/serializer" :depends-on ("packages"))))
+	       (:module "migrations"
+			:components (:file "migrations/post-migration" :depends-on ("packages" "post-model")))
+	       (:module "models"
+			:components ((:file "models/post-model" :depends-on ("packages"))))
+	       (:module "controllers"
+			:components ((:file "controllers/controller" :depends-on ("packages"))))))
+		     
