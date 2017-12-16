@@ -1,4 +1,0 @@
-(in-package :ian.mrexox.site)
-
-(def-serializer 'post
-    :attrs '(id title text likes created-at))

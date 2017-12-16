@@ -6,13 +6,16 @@
 (asdf:load-system :local-time)
 (asdf:load-system :simple-date)
 
-(load "~/src/lisp/site/packages.lisp")
+(defparameter cwd (truename "."))
+
+(load (merge-pathnames cwd #P"packages.lisp"))
 
 (in-package :ian.mrexox.site)
+(defparameter cwd (truename "."))
 
 (defvar *acceptor* (make-instance 'easy-acceptor :port 4242))
 
-(load "~/src/lisp/site/models/post-model.lisp")
-(load "~/src/lisp/site/serializers/serializer.lisp")
+(load (merge-pathnames #P"models/post-model.lisp" cwd))
+(load (merge-pathnames #P"serializers/serializer.lisp" cwd))
 
 (start *acceptor*)

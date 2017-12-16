@@ -1,3 +1,0 @@
-(in-package #:ian.mrexox.site)
-
-(execute (dao-table-definition 'post))
